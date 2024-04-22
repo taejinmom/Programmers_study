@@ -17,7 +17,7 @@ public class ReadInputText {
     // InputStreamReader - bufferedReader
 
         // 입력 한번 받기
-        public void UseBufferedReader() {
+        public String UseBufferedReader() {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 System.out.print("입력하세요 : ");
@@ -25,6 +25,7 @@ public class ReadInputText {
                 String str = reader.readLine();
                 // 입력 데이터 출력
                 System.out.println("입력 값 :" + str);
+                return str;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
