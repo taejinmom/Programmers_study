@@ -1,5 +1,7 @@
 package middler;
 
+import java.util.Arrays;
+
 /**
  문자열 code가 주어집니다.
  code를 앞에서부터 읽으면서 만약 문자가 "1"이면 mode를 바꿉니다. mode에 따라 code를 읽어가면서 문자열 ret을 만들어냅니다.
@@ -17,4 +19,53 @@ package middler;
  단, 시작할 때 mode는 0이며, return 하려는 ret가 만약 빈 문자열이라면 대신 "EMPTY"를 return 합니다.
  */
 public class _1_코드처리하기 {
+    public static void main(String[] args) {
+        _1_코드처리하기 t = new _1_코드처리하기();
+        System.out.println(t.solution("abc1abc1abc"));
+        System.out.println();
+    }
+
+    public String solution(String str) {
+        String[] code = str.split("");
+        int mode = 0;
+        boolean check = false;
+        String ret = "";
+
+        for (int i = 0; i < code.length; i++) {
+            if(code[i].equals("1")){
+                mode = mode == 0? 1:0;
+                continue;
+            }
+            if(mode == 0  && i % 2 == 0){
+                ret += code[i];
+                System.out.println("code > " + code[i] + " mode > " + mode +" // idx > " + i);
+            }else if(mode == 1  && i % 2 != 0){
+                ret += code[i];
+                System.out.println("code > " + code[i] + " mode > " + mode +" // idx > " + i);
+            }
+        }
+        if(ret.equals("")) {
+            return "EMPTY";
+        }
+        return ret;
+    }
+
+    public String solution2(String code) {
+        //StringBuilder 사용
+        StringBuilder answer = new StringBuilder();
+        int mode = 0;
+
+        for (int i = 0; i < code.length(); i++) {
+            char current = code.charAt(i); // split 사용하지 않고 메모리 낭비 x
+            if (current == '1') {
+                mode = mode == 0 ? 1 : 0;
+                continue;
+            }
+
+            if (i % 2 == mode) { // 이부분 지린다
+                answer.append(current);
+            }
+        }
+        return answer.length() == 0 ? "EMPTY" : answer.toString();
+    }
 }

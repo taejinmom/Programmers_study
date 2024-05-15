@@ -8,12 +8,12 @@ import java.util.Arrays;
  * 다행스럽게도 일곱 난쟁이의 키의 합이 100이 됨을 기억해 냈다.
  * 아홉 난쟁이의 키가 주어졌을 때, 백설공주를 도와 일곱 난쟁이를 찾는 프로그램을 작성하시오.
  */
-public class _2_일곱난장이 {
+public class _3_일곱난장이 {
     static boolean[] list;
     static int[] dwarf;
 
     public static void main(String[] args) {
-        _2_일곱난장이 t = new _2_일곱난장이();
+        _3_일곱난장이 t = new _3_일곱난장이();
         dwarf = new int[9];
         list = new boolean[9];
         int[] arrays = {25,3,24,19,10,15,21,8,13};
