@@ -17,11 +17,15 @@ import java.util.Arrays;
  문자열 code를 통해 만들어진 문자열 ret를 return 하는 solution 함수를 완성해 주세요.
 
  단, 시작할 때 mode는 0이며, return 하려는 ret가 만약 빈 문자열이라면 대신 "EMPTY"를 return 합니다.
+
+ test case
+  입력 : abc1abc1abc
+  출력 : acbac
  */
 public class _1_코드처리하기 {
     public static void main(String[] args) {
         _1_코드처리하기 t = new _1_코드처리하기();
-        System.out.println(t.solution("abc1abc1abc"));
+        System.out.println(t.solution2("abc1abc1abc"));
         System.out.println();
     }
 
@@ -38,10 +42,8 @@ public class _1_코드처리하기 {
             }
             if(mode == 0  && i % 2 == 0){
                 ret += code[i];
-                System.out.println("code > " + code[i] + " mode > " + mode +" // idx > " + i);
             }else if(mode == 1  && i % 2 != 0){
                 ret += code[i];
-                System.out.println("code > " + code[i] + " mode > " + mode +" // idx > " + i);
             }
         }
         if(ret.equals("")) {
